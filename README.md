@@ -21,16 +21,16 @@ var app = express();
 csp.extend(app, {
     policy: {
         directives: {
-            'default-src': ['self', 'https://*.foo.com'],
-            'script-src': ['*.apis.bar.com']
+            'default-src': ['self', 'https://*.example.com'],
+            'script-src': ['*.apis.example.com']
         }
     },
     reportPolicy: {
         useScriptNonce: true,
         useStyleNonce: true,
         directives: {
-            'default-src': ['self', 'https://*.foo.com'],
-            'script-src': ['*.apis.bar.com'],
+            'default-src': ['self', 'https://*.example.com'],
+            'script-src': ['*.apis.example.com'],
             'plugin-types': ['application/pdf']
         }
     }
@@ -139,13 +139,13 @@ app.get('/', function(req, res, next) {
     res.setPolicy({
         policy: {
             directives: {
-                'script-src' : ['unsafe-inline', '*.foo.com']
+                'script-src' : ['unsafe-inline', '*.example.com']
             }
         },
         reportPolicy: {
             useNonce: true,
             directives: {
-                'script-src' : ['*.foo.com']
+                'script-src' : ['*.example.com']
             }
         }
     });
